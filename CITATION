@@ -1,0 +1,7 @@
+# Citation info
+
+A pure Python implementation of a simple empirical model of crop maturation, built from the [FORTRAN DSSAT simple crop-soil water model exaple](http://dssat.net/about/modular-approach-example).
+
+>Original FORTRAN code citation: RICARDO BRAGA and JADIR ROSA (1997), for course AGE 5646-Agricultural and Biological Systems Simulation), created: 03/31/1997 Modified 07/1999.
+
+>Laken, B.A. (2015), PyCrop, a pure python implementation of simple empircal model of crop maturation, based on DSSAT example code. url: https://github.com/benlaken/PyCrop, under CC0 1.0 Universal license.
