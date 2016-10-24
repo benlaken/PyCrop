@@ -1,2 +1,4 @@
 .ipynb_checkpoints/*
 PyCrop/__pycache__/*
+PyCrop.egg-info/
+PyCrop/examples/.ipynb_checkpoints/
