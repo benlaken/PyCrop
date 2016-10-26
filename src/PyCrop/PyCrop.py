@@ -71,7 +71,7 @@ class GetData(object):
         """
         Get irrigation data from a file in a relative path.
         """
-        irrigation_file = "Data/IRRIG.INP"
+        irrigation_file = ".Data/IRRIG.INP"
         tmp = []
         with open(irrigation_file, 'r') as f:
             for line in f:
@@ -145,7 +145,7 @@ class Soil_Water(object):
     CALL SW(
     DOY, LAI, RAIN, SRAD, TMAX, TMIN,               !Input
     SWFAC1, SWFAC2,                                 !Output
-    'INITIAL   ')                                   !Control 
+    'INITIAL   ')                                   !Control
     """
 
     @staticmethod
@@ -182,12 +182,12 @@ class Soil_Water(object):
         """
         Calculates the daily potential evapotranspiration.
         Input:  LAI, TMAX, TMIN, SRAD
-        Output: ETp    
+        Output: ETp
         Local Variables
         ALB  =  ALBEDO OF CROP-SOIL SURFACE
         EEQ  =  EQUILIBRIUM EVAPOTRANSPIRATION (mm)
         Tmed =  ESTIMATED AVERAGE DAILY TEMPERATURE (C)
-        f    =    
+        f    =
         SUBROUTINE ETpS(SRAD,TMAX,TMIN,LAI,ETp)
         """
         ALB = 0.1 * np.exp(-0.7 * LAI) + 0.2 * (1 - np.exp(-0.7 * LAI))
@@ -229,8 +229,8 @@ class Soil_Water(object):
         Output: SWFAC1, SWFAC2
         stress_depth is the water table dpth. (mm) below which no stress occurs
         THE is the threshold for drought stress (mm)
-        Excess water stress factor - SWFAC2 
-        
+        Excess water stress factor - SWFAC2
+
         FC water is distributed evenly throughout soil profile.  Any
         water in excess of FC creates a free water surface
         WTABLE - thickness of water table (mm)
@@ -280,13 +280,13 @@ class PlantMethods(object):
     def lais(FL, di, PD, EMP1, EMP2, N, nb, SWFAC1, SWFAC2, PT, dN,
              sla, p1):
         """
-        Calculates the canopy leaf area index (LAI) 
+        Calculates the canopy leaf area index (LAI)
         Input:  FL, di, PD, EMP1, EMP2, N, nb, SWFAC1, SWFAC2, PT, dN
         Output: dLAI
         SUBROUTINE LAIS(FL,di,PD,EMP1,EMP2,N,nb,SWFAC1,SWFAC2,PT,
         &         dN,p1, sla, dLAI)
         REAL PD,EMP1,EMP2,N,nb,dLAI, SWFAC,a, dN, p1,sla
-        REAL SWFAC1, SWFAC2, PT, di, FL 
+        REAL SWFAC1, SWFAC2, PT, di, FL
         """
         SWFAC = np.min([SWFAC1, SWFAC2])
         if FL == 1.0:
@@ -316,7 +316,7 @@ class PlantMethods(object):
     @staticmethod
     def PTS(TMAX, TMIN):
         """
-        Calculates the factor that incorporates the effect of temperature 
+        Calculates the factor that incorporates the effect of temperature
         on photosynthesis
         SUBROUTINE PTS(TMAX,TMIN,PT)
         REAL PT,TMAX,TMIN
