@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import datetime as dt
+import pkg_resources as pkg
 
 
 class PyCrop(object):
@@ -71,7 +72,7 @@ class GetData(object):
         """
         Get irrigation data from a file in a relative path.
         """
-        irrigation_file = ".Data/IRRIG.INP"
+        irrigation_file = pkg.resource_filename('PyCrop', "Data/IRRIG.INP")
         tmp = []
         with open(irrigation_file, 'r') as f:
             for line in f:
@@ -85,7 +86,7 @@ class GetData(object):
         """
         Get initial data from Plant.inp file.
         """
-        plant_file = "Data/Plant.inp"
+        plant_file = pkg.resource_filename('PyCrop', "Data/Plant.inp")
         plant = {}
         with open(plant_file, 'r') as f:
             firstline = f.readline().split()
@@ -98,14 +99,13 @@ class GetData(object):
         plant['wf'] = 0.0
         return plant
 
-
     @staticmethod
     def get_soil():
         """
         Get soil data from input file in relative path.
         Returns a dictionary obj as a class variable.
         """
-        soil_file = "Data/Soil.inp"
+        soil_file = pkg.resource_filename('PyCrop', "Data/Soil.inp")
         soil = {}
         with open(soil_file, 'r') as f:
             firstline = f.readline().split()
@@ -120,7 +120,7 @@ class GetData(object):
         Get weather data from input file in relative path.
         Returns a pandas Dataframe object as a class variable.
         """
-        weather_file = "Data/weather.inp"
+        weather_file = pkg.resource_filename('PyCrop', "Data/weather.inp")
         tmp = []
         with open(weather_file, 'r') as f:
             for line in f:
@@ -358,7 +358,7 @@ class CustomFunctions(object):
         (This is currently only the defs from the soil water routine.)
         """
         var_dic = {}
-        var_files = ["Data/var_defs.txt"]
+        var_files = [pkg.resource_filename('PyCrop', "Data/var_defs.txt")]
         for file in var_files:
             with open(file, 'r') as f:
                 for line in f:
