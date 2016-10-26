@@ -1,4 +1,4 @@
 .ipynb_checkpoints/*
 src/PyCrop/__pycache__/*
-src/PyCrop.egg-info/
+PyCrop.egg-info/
 src/PyCrop/examples/.ipynb_checkpoints/
